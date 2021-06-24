@@ -37,7 +37,7 @@ def main() -> None:
         map_width=map_width,
         map_height=map_height,
         max_monsters_per_room=max_monsters_per_room,
-        player=player
+        player=player,
     )
 
     engine = Engine(event_handler=event_handler, game_map=game_map, player=player)
