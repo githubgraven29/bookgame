@@ -73,3 +73,8 @@ class HostileEnemy(BaseAI):
         
         return WaitAction(self.entity).perform()
         
+# Features I'd like to add, in no particular order -
+# 'AI patrol routes' such that the entities are not simply standing still when generated, but also, they do not hone in on the 
+# Player until they know he is there (IE - they see the Player [or hear the Player])
+# A way for the hostiles to do things differently when other hostiles are around - like swapping spots if the hostile in front
+# is getting gassed. 
