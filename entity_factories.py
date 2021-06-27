@@ -2,6 +2,8 @@ from components.ai import HostileEnemy
 from components.fighter import Fighter
 from entity import Actor
 
+import random
+
 
 player = Actor(
     char="@", 
@@ -10,6 +12,9 @@ player = Actor(
     ai_cls=HostileEnemy,
     fighter=Fighter(hp=30, defense=2, power=5),
 )
+# what I want to do is adjust so that at creation, each orc has a chance to be different from the other orcs. 
+# I also want to change the attacks to become slightly randomized within each attack, so that each attack reps a dice roll.
+# The difference between the races will be the sides of the dice and the number of dice.
 
 orc = Actor(
     char="O", 
