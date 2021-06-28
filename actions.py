@@ -99,3 +99,5 @@ class BumpAction(ActionWithDirection):
 
         else:
             return MovementAction(self.entity, self.dx, self.dy).perform()
+
+# I think I need to rewrite this logic too if I want to incorporate dice rolls for damage.
