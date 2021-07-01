@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from typing import TYPE_CHECKING
+import random
 
 from components.base_component import BaseComponent
 from input_handlers import GameOverEventHandler
@@ -44,3 +45,13 @@ class Fighter(BaseComponent):
         self.entity.render_order = RenderOrder.CORPSE
 
         print(death_message)
+
+
+class MonsterFighter(Fighter):
+    def __init__(self, min_hp: int, max_hp: int, min_power: int, max_power: int, min_defense: int, max_defense: int):
+        super().__init__(
+            base_hp = random.randint(min_hp, max_hp),
+            base_attack = random.randint(min_power, max_power),
+            base_defense = random.randint(min_defense, max_defense),
+        )
+
