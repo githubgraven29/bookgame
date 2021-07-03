@@ -48,10 +48,10 @@ class Fighter(BaseComponent):
 
 
 class MonsterFighter(Fighter):
-    def __init__(self, min_hp: int, max_hp: int, min_power: int, max_power: int, min_defense: int, max_defense: int):
+    def __init__(self, low_hp: int, high_hp: int, min_power: int, max_power: int, min_defense: int, max_defense: int):
         super().__init__(
-            base_hp = random.randint(min_hp, max_hp),
-            base_attack = random.randint(min_power, max_power),
-            base_defense = random.randint(min_defense, max_defense),
-        )
+            hp = random.randint(low_hp, high_hp),
+            power = random.randint(min_power, max_power),
+            defense = random.randint(min_defense, max_defense),
+            )
 

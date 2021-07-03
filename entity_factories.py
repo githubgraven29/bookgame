@@ -23,7 +23,7 @@ orc = Actor(
     color=(63, 127, 63), 
     name="Orc", 
     ai_cls=HostileEnemy,
-    fighter=MonsterFighter(min_hp = 8, max_hp = 12, min_power = 2, max_power = 3, min_defense = -1, max_defense = 1),
+    fighter=MonsterFighter(low_hp = 8, high_hp = 12, min_power = 2, max_power = 3, min_defense = -1, max_defense = 1),
 )
 
 troll = Actor(
@@ -31,5 +31,5 @@ troll = Actor(
     color=(0, 127, 0), 
     name="Troll", 
     ai_cls=HostileEnemy,
-    fighter=MonsterFighter(min_hp = 13, max_hp = 19, min_power = 2, max_power = 6, min_defense = 0, max_defense = 2),
+    fighter=MonsterFighter(low_hp = 13, high_hp = 19, min_power = 2, max_power = 6, min_defense = 0, max_defense = 2),
 )
