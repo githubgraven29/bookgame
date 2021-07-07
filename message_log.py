@@ -31,7 +31,7 @@ class MessageLog:
         'text' is the message text, 'fg' is the text color.
         If 'stack' is True then the message can stack with a previous message of the same text. """
         if stack and self.messages and text == self.messages[-1].plain_text:
-            self.messages[-1] += 1
+            self.messages[-1].count += 1
         else:
             self.messages.append(Message(text, fg))
 
@@ -58,6 +58,6 @@ class MessageLog:
         for message in reversed(messages):
             for line in reversed(textwrap.wrap(message.full_text, width)):
                 console.print(x=x, y=y + y_offset, string=line, fg=message.fg)
-                y_offset -= -1
+                y_offset -= 1
                 if y_offset < 0:
                     return # no more space to print messages
