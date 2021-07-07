@@ -10,10 +10,10 @@ from procgen import generate_dungeon
 
 
 def main() -> None:
-    screen_width = 80
+    screen_width = 120
     screen_height = 50
 
-    map_width = 80
+    map_width = 120
     map_height = 43
 
     room_max_size = 10
@@ -42,21 +42,23 @@ def main() -> None:
     engine.update_fov()
 
     engine.message_log.add_message(
-        "Hello and welcome, bro, to BookGame!", color.welcome_text
+        "Hello and welcome, adventurer, to yet another dungeon!", color.welcome_text
     )
 
     with tcod.context.new_terminal(
         screen_width,
         screen_height,
         tileset=tileset,
-        title="Book Game",
+        title="Yet Another Roguelike Tutorial",
         vsync=True,
     ) as context:
         root_console = tcod.Console(screen_width, screen_height, order="F")
         while True:
-            engine.render(console=root_console, context=context)
+            root_console.clear()
+            engine.event_handler.on_render(console=root_console)
+            context.present(root_console)
 
-            engine.event_handler.handle_events()
+            engine.event_handler.handle_events(context)
 
 
 if __name__ == "__main__":
