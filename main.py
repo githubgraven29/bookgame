@@ -11,10 +11,10 @@ from procgen import generate_dungeon
 
 
 def main() -> None:
-    screen_width = 120
+    screen_width = 80
     screen_height = 50
 
-    map_width = 120
+    map_width = 80
     map_height = 43
 
     room_max_size = 10
@@ -22,6 +22,7 @@ def main() -> None:
     max_rooms = 30
 
     max_monsters_per_room = 2
+    max_items_per_room = 2
 
     tileset = tcod.tileset.load_tilesheet(
         "dejavu10x10_gs_tc.png", 32, 8, tcod.tileset.CHARMAP_TCOD
@@ -38,6 +39,7 @@ def main() -> None:
         map_width=map_width,
         map_height=map_height,
         max_monsters_per_room=max_monsters_per_room,
+        max_items_per_room=max_items_per_room,
         engine=engine,
     )
     engine.update_fov()
@@ -50,7 +52,7 @@ def main() -> None:
         screen_width,
         screen_height,
         tileset=tileset,
-        title="Book Game",
+        title="Yet Another Roguelike Tutorial",
         vsync=True,
     ) as context:
         root_console = tcod.Console(screen_width, screen_height, order="F")
@@ -62,9 +64,9 @@ def main() -> None:
             try:
                 for event in tcod.event.wait():
                     context.convert_event(event)
-                    engine.event_handler.handle_events(event)   
-            except Exception: # handle exceptions in game.  
-                traceback.print_exc() # Print error to stderr.
+                    engine.event_handler.handle_events(event)
+            except Exception:  # Handle exceptions in game.
+                traceback.print_exc()  # Print error to stderr.
                 # Then print the error to the message log.
                 engine.message_log.add_message(traceback.format_exc(), color.error)
 

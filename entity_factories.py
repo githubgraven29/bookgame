@@ -1,9 +1,9 @@
-from math import hypot
 from components.ai import HostileEnemy
+from components.consumable import HealingConsumable
 from components.fighter import Fighter, MonsterFighter
-from entity import Actor
+from entity import Actor, Item
 
-import random
+
 
 
 player = Actor(
@@ -32,4 +32,11 @@ troll = Actor(
     name="Troll", 
     ai_cls=HostileEnemy,
     fighter=MonsterFighter(low_hp = 13, high_hp = 19, min_power = 2, max_power = 6, min_defense = 0, max_defense = 2),
+)
+
+health_potion = Item(
+    char="!",
+    color=(127, 0, 255),
+    name="Health Potion",
+    consumable=HealingConsumable(amount=4),
 )
